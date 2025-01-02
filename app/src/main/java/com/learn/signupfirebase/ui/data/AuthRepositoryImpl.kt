@@ -9,10 +9,10 @@ class AuthRepositoryImpl(
 ) :
     AuthRepository {
     override suspend fun login(email: String, password: String): Resource<FirebaseUser> {
-       return try {
-            val result= firebaseAuth.signInWithEmailAndPassword(email,password).await()
+        return try {
+            val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
             Resource.Sucess(result.user!!)
-        }catch (e: Exception){
+        } catch (e: Exception) {
             Resource.Error(e)
         }
 
@@ -24,7 +24,12 @@ class AuthRepositoryImpl(
         password: String,
         celphone: String
     ): Resource<FirebaseUser> {
-        TODO("Not yet implemented")
+        return try {
+            val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
+            Resource.Sucess(result.user!!)
+        } catch (e: Exception) {
+            Resource.Error(e)
+        }
     }
 
     override fun logout() {
