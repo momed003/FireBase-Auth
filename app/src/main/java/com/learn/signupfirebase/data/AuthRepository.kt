@@ -1,4 +1,4 @@
-package com.learn.signupfirebase.ui.data
+package com.learn.signupfirebase.data
 
 
 import com.google.firebase.auth.FirebaseUser
