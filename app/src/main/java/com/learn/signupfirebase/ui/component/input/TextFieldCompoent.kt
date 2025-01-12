@@ -1,4 +1,4 @@
-package com.learn.signupfirebase.ui.component
+package com.learn.signupfirebase.ui.component.input
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
