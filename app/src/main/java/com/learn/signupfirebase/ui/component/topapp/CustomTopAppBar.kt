@@ -32,7 +32,7 @@ fun CustomTopAppBar(iconBack:Boolean=false, onClick:() -> Unit) {
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(bottomEnd = 1000.dp))
                 .background(AuxiliarColor)
-                .height(45.dp)
+                .height(80.dp)
         ) {
             if (iconBack){
                 IconButton(onClick = onClick) {
@@ -49,6 +49,7 @@ fun CustomTopAppBar(iconBack:Boolean=false, onClick:() -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .height(30.dp)
                 .clip(WaveShape(topHeightFactor = 0f, bottomHeightFactor = 0.5f),
                     )
                 .background(MainColor)
