@@ -1,10 +1,12 @@
-package com.learn.signupfirebase.ui.data
+package com.learn.signupfirebase.data
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.learn.signupfirebase.ui.data.utils.await
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.learn.signupfirebase.data.utils.await
+import javax.inject.Inject
 
-class AuthRepositoryImpl(
+class AuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ) :
     AuthRepository {
@@ -26,6 +28,7 @@ class AuthRepositoryImpl(
     ): Resource<FirebaseUser> {
         return try {
             val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
+            result?.user?.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build())?.await()
             Resource.Sucess(result.user!!)
         } catch (e: Exception) {
             Resource.Error(e)
@@ -33,7 +36,7 @@ class AuthRepositoryImpl(
     }
 
     override fun logout() {
-        TODO("Not yet implemented")
+        firebaseAuth.signOut()
     }
 
     override val currentUser: FirebaseUser?

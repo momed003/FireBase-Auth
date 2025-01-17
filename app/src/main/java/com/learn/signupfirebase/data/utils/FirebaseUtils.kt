@@ -1,4 +1,4 @@
-package com.learn.signupfirebase.ui.data.utils
+package com.learn.signupfirebase.data.utils
 
 import com.google.android.gms.tasks.Task
 import kotlinx.coroutines.suspendCancellableCoroutine
