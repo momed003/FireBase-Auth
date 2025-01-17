@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -40,7 +41,7 @@ fun CustomTopAppBar(iconBack:Boolean=false, onClick:() -> Unit) {
                         painter = painterResource(R.drawable.back),
                         contentDescription = "",
                         tint = Color.White,
-                        modifier = Modifier.size(30.dp)
+                        modifier = Modifier.size(200.dp).padding(top = 20.dp)
                     )
                 }
             }

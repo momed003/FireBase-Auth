@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -25,14 +24,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.learn.signupfirebase.R
+import com.learn.signupfirebase.ui.Screen
 import com.learn.signupfirebase.ui.component.topapp.CustomTopAppBar
 import com.learn.signupfirebase.ui.theme.AuxiliarColor
 import com.learn.signupfirebase.ui.theme.MainColor
 
-@Preview
+//@Preview
 @Composable
-fun FirstScreen(){
+fun FirstScreen(navController: NavController){
 
     Scaffold (
         topBar = {
@@ -40,7 +41,9 @@ fun FirstScreen(){
         }
     ){
         paddingValues ->
-        Column (modifier = Modifier.padding(paddingValues).fillMaxWidth(),
+        Column (modifier = Modifier
+            .padding(paddingValues)
+            .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally){
            Spacer(Modifier.height(100.dp))
 
@@ -70,7 +73,7 @@ fun FirstScreen(){
             }
             Spacer(Modifier.height(10.dp))
             OutlinedButton(
-                onClick = {},
+                onClick = { navController.navigate(Screen.Login.route)},
                 modifier = Modifier.width(200.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,

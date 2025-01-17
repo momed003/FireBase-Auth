@@ -1,5 +1,6 @@
 package com.learn.signupfirebase.ui.screen.splash
 
+import android.window.SplashScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -10,26 +11,24 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.learn.signupfirebase.R
+import com.learn.signupfirebase.ui.Screen
 import com.learn.signupfirebase.ui.theme.MainColor
+import kotlinx.coroutines.delay
 
-@Preview
+//@Preview
 @Composable
-fun Splash() {
+fun SplashScreen(navController: NavController) {
 
-    Scaffold(
-
-        topBar = {
-
-        }
-
-    ) { paddingValues ->
+    Scaffold() { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             Column(
                 Modifier
@@ -49,5 +48,10 @@ fun Splash() {
 
             }
         }
+    }
+
+    LaunchedEffect (Unit){
+        delay(3000)
+        navController.navigate(Screen.FirstScreen.route)
     }
 }
